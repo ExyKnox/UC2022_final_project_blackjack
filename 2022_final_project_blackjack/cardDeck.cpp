@@ -24,18 +24,18 @@ cardDeck::cardDeck(int packs) {
 void cardDeck::shuffleCards() {
 	struct Card shuffleBuffer[52];
 	bool duplicationChecker[52] = { false, };
-
-	int randBuf = rand() % 52;
-	int shuffleIndex = 0;
-	while (shuffleIndex < card_amount) {
-		if (!duplicationChecker[randBuf]) {
-			shuffleBuffer[shuffleIndex] = cards[randBuf];
+		int randBuf = rand() % 52;
+		int shuffleIndex = 0;
+		while (shuffleIndex < card_amount) {
+			if (!duplicationChecker[randBuf]) {
+				shuffleBuffer[shuffleIndex] = cards[randBuf];
 			duplicationChecker[randBuf] = true;
-			randBuf = rand() % 52;
-			shuffleIndex++;
-		}
-		else {
-			randBuf = rand() % 52;
+				randBuf = rand() % 52;
+				shuffleIndex++;
+			}
+			else {
+				randBuf = rand() % 52;
+			}
 		}
 	}
 	
