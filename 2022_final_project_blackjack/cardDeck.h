@@ -18,7 +18,8 @@ struct Card {
 
 class cardDeck
 {
-	int card_amount;
+	int cardAmount;
+	int popCardIndex = 0;
 	const char symbols[4] = { 'S', 'H', 'D', 'C' }; // SPADE HEART DIAMOND CLUB
 	const string indexes[13] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
