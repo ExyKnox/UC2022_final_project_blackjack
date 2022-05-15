@@ -53,6 +53,15 @@ void CardDeck::shuffleCards() {
 
 struct Card CardDeck::popCard() {
 	// have to use something like stack...
-	this->popCardIndex++;
-	return cards[popCardIndex - 1];
+	if (popCardIndex < cardAmount) {
+		this->popCardIndex++;
+		return cards[popCardIndex - 1];
+	}
+	else {
+		struct Card endOfDeck;
+		endOfDeck.symbol = 'E';
+		endOfDeck.index;
+
+		return endOfDeck;
+	}
 }

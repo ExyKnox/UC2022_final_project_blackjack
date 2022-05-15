@@ -13,7 +13,15 @@ using namespace std;
 
 struct Card {
 	char symbol;
-	string index; // 숫자 혹은 J, Q, K - stoi() 먼저 돌리고 -> 숫자가 아니면(JQK) 0를 리턴할 것임 -> 10점 처리
+	string index;
+	/*
+	* 숫자 혹은 J, Q, K
+	* ->stoi() 먼저 돌리고->숫자가 아니면(AJQK) 0를 리턴할 것임
+	* ->숫자면
+	* stoi()가 리턴한 숫자를 점수로 처리
+	* ->숫자가 아니면
+	* A면 1 혹은 11, J Q K 이라면 10점 처리
+	*/
 };
 
 class CardDeck
@@ -22,11 +30,9 @@ class CardDeck
 	int popCardIndex = 0;
 	const char symbols[4] = { 'S', 'H', 'D', 'C' }; // SPADE HEART DIAMOND CLUB
 	const string indexes[13] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-
-public:
-	// private로 돌려야 함!
 	struct Card cards[52];
 
+public:
 	CardDeck();
 	CardDeck(int packs);
 	void shuffleCards();
