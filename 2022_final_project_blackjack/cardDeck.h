@@ -6,7 +6,7 @@
 using namespace std;
 
 /*
-* 뽑아가는 카드 덱을 담당하는 클래스 cardDeck.
+* 뽑아가는 카드 덱을 담당하는 클래스 CardDeck.
 * 플레이어/딜러의 카드 뽑기, 카드 덱 셔플, 게임의 카드 장수
 * 게임 룰 참고 https://m.blog.naver.com/jajuye123/221352238101
 */
@@ -16,9 +16,10 @@ struct Card {
 	string index; // 숫자 혹은 J, Q, K - stoi() 먼저 돌리고 -> 숫자가 아니면(JQK) 0를 리턴할 것임 -> 10점 처리
 };
 
-class cardDeck
+class CardDeck
 {
-	int card_amount;
+	int cardAmount;
+	int popCardIndex = 0;
 	const char symbols[4] = { 'S', 'H', 'D', 'C' }; // SPADE HEART DIAMOND CLUB
 	const string indexes[13] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
@@ -26,8 +27,8 @@ public:
 	// private로 돌려야 함!
 	struct Card cards[52];
 
-	cardDeck();
-	cardDeck(int packs);
+	CardDeck();
+	CardDeck(int packs);
 	void shuffleCards();
 	//struct Card getCard(int number);
 	struct Card popCard();
