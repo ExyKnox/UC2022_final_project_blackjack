@@ -20,5 +20,11 @@ class Player
 {
 	// 구조체 Card의 포인터 주소를 저장하는 포인터 변수
 	struct Card* playerDeck[6];
+	bool stand, hit, burst;
+public:
+	Player();
+	void getCard(struct Card&);
+	void askStatus(); // 플레이어(사람)에게 히트, 스탠드, 버스트 여부를 물어보는 함수
+	string status(); // returns "stand", "hit", "burst"
 };
 
