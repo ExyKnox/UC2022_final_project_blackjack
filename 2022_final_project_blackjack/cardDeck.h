@@ -9,8 +9,6 @@ using namespace std;
 * 뽑아가는 카드 덱을 담당하는 클래스 CardDeck.
 * 플레이어/딜러의 카드 뽑기, 카드 덱 셔플, 게임의 카드 장수
 * 게임 룰 참고 https://m.blog.naver.com/jajuye123/221352238101
-* 
-* 서석환 노트북에서 수정한 내용
 */
 
 struct Card {
