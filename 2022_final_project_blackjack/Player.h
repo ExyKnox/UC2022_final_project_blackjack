@@ -23,8 +23,7 @@ class Player
 	bool stand, hit, burst;
 public:
 	Player();
-	void getCard(struct Card&);
-	void askStatus(); // 플레이어(사람)에게 히트, 스탠드, 버스트 여부를 물어보는 함수
+	void getCard(struct Card* c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
+	void askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
 	string status(); // returns "stand", "hit", "burst"
 };
-
