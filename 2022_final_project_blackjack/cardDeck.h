@@ -11,8 +11,6 @@ using namespace std;
 * °ÔÀÓ ·ê Âü°í https://m.blog.naver.com/jajuye123/221352238101
 */
 
-
-
 struct Card {
 	char symbol;
 	string index;
@@ -30,6 +28,5 @@ public:
 	CardDeck();
 	CardDeck(int packs);
 	void shuffleCards();
-	//struct Card getCard(int number);
 	struct Card popCard();
 }; 
