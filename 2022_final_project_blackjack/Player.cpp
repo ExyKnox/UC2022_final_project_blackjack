@@ -9,5 +9,5 @@ void Player::getCard(struct Card* c) {
 }
 
 void Player::askStatus() {
-
+	// 내용 다른 주석
 }
