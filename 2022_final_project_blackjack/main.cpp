@@ -4,12 +4,19 @@
 
 using namespace std;
 
+//함수 원형 정의 - 안하면 에러남.
+void cardDeckTest();
+
 int main() {
+	cardDeckTest();
+}
+
+void cardDeckTest() {
 	CardDeck testDeck;
 	testDeck.shuffleCards();
 
 	/*for (int i = 0; i < 52; i++) {
-		cout << "[" << testDeck.cards[i].symbol << testDeck.cards[i].index << "]";	
+		cout << "[" << testDeck.cards[i].symbol << testDeck.cards[i].index << "]";
 	}
 	cout << endl;*/
 	cout << "pop 5 cards" << endl;
@@ -21,7 +28,7 @@ int main() {
 	testDeck.shuffleCards();
 
 	/*for (int i = 0; i < 52; i++) {
-		cout << "[" << testDeck.cards[i].symbol << testDeck.cards[i].index << "]";	
+		cout << "[" << testDeck.cards[i].symbol << testDeck.cards[i].index << "]";
 	}*/
 	cout << endl;
 	cout << "pop 5 cards" << endl;
