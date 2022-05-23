@@ -20,8 +20,8 @@ using namespace std;
 class Player
 {
 protected:
-	// 구조체 Card의 포인터 주소를 저장하는 포인터 변수
 	int score = 0;
+	// 구조체 Card의 포인터 주소를 저장하는 포인터 변수
 	struct Card* playerDeck[6];
 	bool stand, hit, burst;
 public:
