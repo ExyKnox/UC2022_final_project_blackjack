@@ -11,17 +11,11 @@ using namespace std;
 * 게임 룰 참고 https://m.blog.naver.com/jajuye123/221352238101
 */
 
+
+
 struct Card {
 	char symbol;
 	string index;
-	/*
-	* 숫자 혹은 J, Q, K
-	* ->stoi() 먼저 돌리고->숫자가 아니면(AJQK) 0를 리턴할 것임
-	* ->숫자면
-	* stoi()가 리턴한 숫자를 점수로 처리
-	* ->숫자가 아니면
-	* A면 1 혹은 11, J Q K 이라면 10점 처리
-	*/
 };
 
 class CardDeck
