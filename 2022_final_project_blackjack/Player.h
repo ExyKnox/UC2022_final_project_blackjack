@@ -28,7 +28,7 @@ public:
 	Player();
 	void getCard(struct Card* c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
 	void askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
-	int score(); // 플레이어의 점수 반환 (점수 판단* + 버스트 판단(상태 업데이트)
+	int calcScore(); // 플레이어의 점수 반환 (점수 판단* + 버스트 판단(상태 업데이트)
 	string status(); // "stand" "hit" "burst" string 값 리턴
 };
 
