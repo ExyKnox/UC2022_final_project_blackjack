@@ -18,5 +18,13 @@ using namespace std;
 class Dealer : public Player {
 
 public:
-	void decision();
+	/*
+	* 이 함수 안에서
+	* Player::select(string status, cardDeck객체포인터) 를 사용해서
+	* 딜러의 히트, 스탠드를 명령
+	* 
+	* ex) select("HIT", testDeck);
+	*	  select("STAND", testDeck);
+	*/
+	void decision(CardDeck* cd);
 };

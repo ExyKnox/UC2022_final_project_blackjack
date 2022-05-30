@@ -29,18 +29,19 @@ protected:
 	//bool hit = false;
 	bool burst = false;
 
-	void scoreCalc();
-	bool select(); // HIT할지 STAND 할지 결정하는 함수 - HIT일 시 true 리턴, STAND일 시 false 리턴
+	void scoreCalc(); // 점수 계산, 자동 스탠드, 버스트
+	string select(string status); // dealer용 인터페이스. status = "HIT" or "STAND".
 public:
 	//Player();
 	void getCard(struct Card c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
-	string askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
+	//string askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
 	void printCard(); // 플레이어가 뽑은 카드를 출력해주는 함수
 	void printScore(); // 플레이어의 누적점수를 출력해주는 함수
 	int getScore();
 	string endGame(); // STAND, BURST, BLACK JACK 일경우 게임을 종료해주는 함수
+	string select(); // HIT할지 STAND 할지 결정하는 함수 - HIT일 시 true 리턴, STAND일 시 false 리턴
 	//int calcScore(); // 플레이어의 점수 반환 (점수 판단* + 버스트 판단(상태 업데이트)
-	//string status(); // "stand" "hit" "burst" string 값 리턴
+	string status(); // "stand" "hit" "burst" string 값 리턴 - 딜러용
 };
 
 /* 점수판단

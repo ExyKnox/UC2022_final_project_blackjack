@@ -19,11 +19,12 @@ void cardDeckTest() {
 
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
-			if (player1.askStatus() == "HIT") {
+			if (player1.select() == "HIT") {
 				// 카드 한 장 뽑기
 				player1.getCard(testDeck.popCard());
 			}
 			//testDeck.shuffleCards();
+			// Player 객체의 stand 가 true 일 경우
 			if (player1.endGame() == "END")
 				break;
 
