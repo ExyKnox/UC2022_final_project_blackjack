@@ -13,23 +13,32 @@ using namespace std;
 * ㄴ 블랙잭 처음 뽑아온 패의 점수가 21
 * 히트(카드를 한 장 더 가져옴)
 * 버스트(플레이어 패의 카드 총합이 21을 초과, 게임오버)
-* 
+*
 * 플레이어는 자신의 패를 가지고 있음
 */
 
 class Player
 {
 protected:
+	int j = 0;
 	int score = 0;
 	// 구조체 Card의 포인터 주소를 저장하는 포인터 변수
-	struct Card* playerDeck[6];
-	bool stand, hit, burst;
+	struct Card playerDeck[7];
+
+	bool stand = false;
+	bool hit = false;
+	bool burst = false;
 public:
-	Player();
-	void getCard(struct Card* c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
+	//Player();
+	void getCard(struct Card c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
 	void askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
-	int calcScore(); // 플레이어의 점수 반환 (점수 판단* + 버스트 판단(상태 업데이트)
-	string status(); // "stand" "hit" "burst" string 값 리턴
+	void printCard(); // 플레이어가 뽑은 카드를 출력해주는 함수
+	void printScore(); // 플레이어의 누적점수를 출력해주는 함수
+	void select(); //HIT할지 STAND 할지 결정하는 함수
+
+	string endGame(); // STAND, BURST, BLACK JACK 일경우 게임을 종료해주는 함수
+	//int calcScore(); // 플레이어의 점수 반환 (점수 판단* + 버스트 판단(상태 업데이트)
+	//string status(); // "stand" "hit" "burst" string 값 리턴
 };
 
 /* 점수판단

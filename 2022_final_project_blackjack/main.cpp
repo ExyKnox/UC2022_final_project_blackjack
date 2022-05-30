@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "CardDeck.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -13,7 +14,25 @@ int main() {
 
 void cardDeckTest() {
 	CardDeck testDeck;
-	testDeck.shuffleCards();
+	Player player1;
+	int l = 0;
+
+	while (true) {
+		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
+			player1.askStatus();
+			testDeck.shuffleCards();
+			player1.getCard(testDeck.popCard());
+			if (player1.endGame() == "END")
+				break;
+
+			l++;
+		}
+		else {
+			testDeck.shuffleCards();
+			player1.getCard(testDeck.popCard());
+			l++;
+		}
+	}
 
 	/*for (int i = 0; i < 52; i++) {
 		cout << "[" << testDeck.cards[i].symbol << testDeck.cards[i].index << "]";
