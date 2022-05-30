@@ -19,18 +19,27 @@ void cardDeckTest() {
 
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
-			player1.askStatus();
-			testDeck.shuffleCards();
-			player1.getCard(testDeck.popCard());
+			if (player1.askStatus() == "HIT") {
+				// 카드 한 장 뽑기
+				player1.getCard(testDeck.popCard());
+			}
+			//testDeck.shuffleCards();
 			if (player1.endGame() == "END")
 				break;
 
 			l++;
 		}
 		else {
-			testDeck.shuffleCards();
+			//testDeck.shuffleCards();
 			player1.getCard(testDeck.popCard());
 			l++;
+			if (l == 2) {
+				// BLACKJACK 판단
+				if (player1.getScore() == 21) {
+					cout << "플레이어 블랙잭, 게임 종료" << endl;
+					return;
+				}
+			}
 		}
 	}
 
