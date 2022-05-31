@@ -18,17 +18,5 @@ using namespace std;
 class Dealer : public Player {
 
 public:
-	/*
-	* 이 함수 안에서
-	* Player::select(string status, cardDeck객체포인터) 를 사용해서
-	* 딜러의 히트, 스탠드를 명령
-	* 
-	* ex) select("HIT", testDeck);
-	*	  select("STAND", testDeck);
-	* 
-	* Player 클래스 상속을 받았으므로
-	* plyerDeck에 접근 가능함
-	* -> 딜러 행동 판단에 사용
-	*/
 	void decision();
 };

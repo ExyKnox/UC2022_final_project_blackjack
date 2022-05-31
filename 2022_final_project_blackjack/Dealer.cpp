@@ -4,19 +4,31 @@
 
 using namespace std;
 
+/*
+페어란 에이스부터 9까지 숫자가 같은 카드 두장이나 10점짜리 카드 두 장을 의미
+*/
 void Dealer::decision() {
-	// https://xn--c79a67g3zy6dt4w.com/%EB%B8%94%EB%9E%99%EC%9E%AD-%EC%A0%84%EB%9E%B5/
-	scoreCalc();
-	if (burst) {
-		cout << "딜러 버스트" << endl;
-		return;
+
+	//딜러 카드안의 index로 판별 
+	string nowCard = playerDeck[j].index;
+	//딜러 카드가 2에서 9사이일때 히트
+	//딜러 카드가 2에서 6사이일때 히트
+	//딜러 카드가 2에서 7사이일때 히트
+	//2에서 7사이일 경우 hit
+	if ("2" <= nowCard && nowCard <= "9")
+	{
+		hit = true;
+
+		stand = false;
+		burst = false;
 	}
-	else {
-		// 딜러 알고리즘 작성
-		/*
-		*ex) select("HIT");
-		*    select("STAND");
-		*/
+	// 딜러카드가 7, 10 or 에이스일 경우 스탠드
+	else if (nowCard == "7" || nowCard = "10" || nowCard = "A")
+	{
+		stand = true;
+
+		hit = false;
+		burst = false;
 	}
 }
 
