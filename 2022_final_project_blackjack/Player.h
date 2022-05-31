@@ -30,7 +30,7 @@ protected:
 	bool burst = false;
 
 	void scoreCalc(); // 점수 계산, 자동 스탠드, 버스트
-	string select(string status); // dealer용 인터페이스. status = "HIT" or "STAND".
+	string select(string status, CardDeck* cd); // dealer용 인터페이스. status = "HIT" or "STAND".
 public:
 	//Player();
 	void getCard(struct Card c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?

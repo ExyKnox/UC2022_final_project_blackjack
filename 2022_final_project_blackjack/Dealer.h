@@ -25,6 +25,10 @@ public:
 	* 
 	* ex) select("HIT", testDeck);
 	*	  select("STAND", testDeck);
+	* 
+	* Player 클래스 상속을 받았으므로
+	* plyerDeck에 접근 가능함
+	* -> 딜러 행동 판단에 사용
 	*/
-	void decision(CardDeck* cd);
+	void decision();
 };
