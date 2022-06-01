@@ -26,7 +26,7 @@ protected:
 	struct Card playerDeck[7];
 
 	bool stand = false;
-	//bool hit = false;
+	bool hit = false;
 	bool burst = false;
 
 	void scoreCalc(); // 점수 계산, 자동 스탠드, 버스트
