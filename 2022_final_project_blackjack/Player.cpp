@@ -73,41 +73,6 @@ void Player::getCard(struct Card c) {
 	}
 }
 
-//string Player::askStatus() {
-//
-//	//if (score == 21) { //score가 21일시 자동 스탠드
-//	//	cout << "점수 21, 자동 스탠드" << endl;
-//	//	stand = true;
-//	//}
-//	//else if (score > 21) { //score가 21이 넘었을떄 BURST지만 플레이어가 A를 가지고 있을시 11로 사용했던 A를 1로 바꿔줌
-//	//	int p = 0;
-//	//	for (int h = 0; h < j; h++) {
-//	//		if (playerDeck[h].index == "A") {
-//	//			p++;
-//	//		}
-//	//	}
-//	//	if (p == 0) {
-//	//		cout << "BURST ㅠㅠ";
-//	//		burst = true;
-//	//	}
-//	//	else if (p == 1) {
-//	//		cout << "A가 포함된 BURST입니다. A를 1로 처리합니다." << endl;
-//	//		score -= 10;
-//	//		printScore();
-//	//		/*if (select() == true) return "HIT";
-//	//		else return "STAND";*/
-//	//	}
-//	//}
-//	//else if (score < 21) { //score가 21보다 낮을떄 플레이어가 HIT와 STAND를 선택할수 있음
-//	//	/*if (select() == true) return "HIT";
-//	//	else return "STAND";*/
-//	//	select();
-//	//}
-//	//select();
-//
-//
-//}
-
 void Player::printCard() { //플레이어가 뽑은 카드를 출력해주는 함수
 	cout << "당신이 뽑은 "
 		<< j + 1
@@ -154,4 +119,10 @@ string Player::select(string status, CardDeck* cd) {
 		getCard(cd->popCard());
 		return "HIT";
 	}
+}
+
+string Player::status() {
+	if (burst) return "BURST";
+	else if (stand) return "STAND";
+	else if (hit) return "HIT";
 }

@@ -34,7 +34,6 @@ protected:
 public:
 	//Player();
 	void getCard(struct Card c); // 패 받을 때마다 점수 계산, 버스트 판정 필요 - 서석환 파트?
-	//string askStatus(); // 플레이어(사람)에게 히트, 스탠드 여부를 물어보는 함수
 	void printCard(); // 플레이어가 뽑은 카드를 출력해주는 함수
 	void printScore(); // 플레이어의 누적점수를 출력해주는 함수
 	int getScore();
