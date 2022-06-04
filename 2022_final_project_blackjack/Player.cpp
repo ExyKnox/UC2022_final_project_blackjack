@@ -47,26 +47,14 @@ void Player::scoreCalc() {
 		else if (p == 1) {
 			cout << "A가 포함된 BURST입니다. A를 1로 처리합니다." << endl;
 			score -= 10;
-			/*if (select() == true) return "HIT";
-			else return "STAND";*/
 		}
 	}
-	//else if (score < 21) { //score가 21보다 낮을떄 플레이어가 HIT와 STAND를 선택할수 있음
-	//	/*if (select() == true) return "HIT";
-	//	else return "STAND";*/
-	//	select();
-	//}
 	printCard();
 	printScore();
 }
 
 void Player::getCard(struct Card c) {
-	// 얜 또 왜 여기있어?
-	if (stand == true or burst == true) { //STAND를 눌렀거나 BURST시 최종점수를 알려준뒤 
-		cout << "당신의 최종점수는"
-			<< score
-			<< "입니다" << endl;
-	}
+	if (stand == true or burst == true) return;
 	else {
 		playerDeck[j] = c;
 		scoreCalc();
@@ -89,9 +77,14 @@ void Player::printScore() { //플레이어의 점수를 출력해주는 함수
 
 string Player::endGame() { //플레이어가 STAND를 선택했을시, BURST판정이 났을시, BLACK JACK일 경우 게임을 종료해주는 함수
 	if (stand == true or burst == true)
+	{
+		//STAND를 눌렀거나 BURST시 최종점수를 알려준뒤 
+		cout << "당신의 최종점수는"
+			 << score
+			 << "입니다" << endl;
 		return "END";
-	else
-		return "CONTINUE";
+	}
+	else return "CONTINUE";
 }
 
 string Player::select() {
