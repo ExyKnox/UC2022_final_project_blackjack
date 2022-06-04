@@ -15,12 +15,18 @@ void Dealer::decision() {
 	// 딜러 카드가 2에서 6사이 일 때 히트
 	// 딜러카드가 2에서 7 사이 일때 히트
 	// 2에서 7사이일 경우 hit
+
+	// 여기서 select(string status, CardDeck* cd) 사용해서
+	// 카드까지 한번에 가져오기? 아니면 main 함수에서 status() 사용해서 getCard()?
+	// 후자 쪽이 더 좋은 방법이긴 할 것 같다.
+	
+	// 딜러 카드가 2에서 9 사이일때 히트
 	if ("2" <= nowCard && nowCard <= "9")
 	{
 		hit = true;
 
 		stand = false;
-		burst = false;
+		//burst = false;
 	}
 	// 딜러카드가 7, 10, or 에이스 일 경우 스탠드 
 	else if (nowCard == "7" || nowCard == "10" || nowCard == "A")
@@ -28,6 +34,18 @@ void Dealer::decision() {
 		stand = true;
 
 		hit = false;
-		burst = false;
+		//burst = false;
+	}
+	// 위의 규칙에 해당되지 않는 경우
+	else
+	{
+		//점수가 11 이하이면 히트(10점짜리 카드가 나와도 무조건 버스트되지 않음)
+		if (score < 11) {
+			stand = false;
+			hit = true;
+		}
+		else {
+			// 몰?루
+		}
 	}
 }
