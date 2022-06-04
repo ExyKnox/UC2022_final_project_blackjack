@@ -21,6 +21,7 @@ void Dealer::decision() {
 	// 후자 쪽이 더 좋은 방법이긴 할 것 같다.
 	
 	// 딜러 카드가 2에서 9 사이일때 히트
+	// string으로 판단하면 안 될 것 같은데... stoi()??
 	if ("2" <= nowCard && nowCard <= "9")
 	{
 		hit = true;
