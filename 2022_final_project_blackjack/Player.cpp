@@ -80,8 +80,8 @@ string Player::endGame() { //플레이어가 STAND를 선택했을시, BURST판정이 났을시, 
 	{
 		//STAND를 눌렀거나 BURST시 최종점수를 알려준뒤 
 		cout << "당신의 최종점수는"
-			 << score
-			 << "입니다" << endl;
+			<< score
+			<< "입니다" << endl;
 		return "END";
 	}
 	else return "CONTINUE";
@@ -108,7 +108,7 @@ string Player::select(string status, CardDeck* cd) {
 		stand = true;
 		return "STAND";
 	}
-	else if(status == "HIT") {
+	else if (status == "HIT") {
 		getCard(cd->popCard());
 		return "HIT";
 	}

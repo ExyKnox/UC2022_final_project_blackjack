@@ -7,7 +7,7 @@ using namespace std;
 /*
 페어란 에이스부터 9까지 숫자가 같은 카드 두 장이나 10점짜리 카드 두 장(예를 들어 10 카드와 퀸)을 의미합니다.
 */
-void Dealer::decision() {
+void Dealer::fair_play_strategy(Player& player) {
 
 	// 딜러 카드안의 index로 판별.
 	string nowCard = playerDeck[j].index;
@@ -19,34 +19,24 @@ void Dealer::decision() {
 	// 여기서 select(string status, CardDeck* cd) 사용해서
 	// 카드까지 한번에 가져오기? 아니면 main 함수에서 status() 사용해서 getCard()?
 	// 후자 쪽이 더 좋은 방법이긴 할 것 같다.
-	
-	// 딜러 카드가 2에서 9 사이일때 히트
-	// string으로 판단하면 안 될 것 같은데... stoi()??
-	if ("2" <= nowCard && nowCard <= "9")
-	{
-		hit = true;
 
-		stand = false;
+	// 딜러 카드가 2에서 9 사이일때 히트
+	////////////////////////////////////////////////////////////////딜러 카드가 2에서 9 사이일때 사용자의 상태를 히트로
+	// string으로 판단하면 안 될 것 같은데... stoi()??
+	if (2 <= stoi(nowCard) && stoi(nowCard) <= 9)////////////////////////////////////////////stoi 사용했습니다.
+	{
+		player.hit_true();
+
+		player.stand_false();
 		//burst = false;
 	}
 	// 딜러카드가 7, 10, or 에이스 일 경우 스탠드 
-	else if (nowCard == "7" || nowCard == "10" || nowCard == "A")
+	/////////////////////////딜러 카드가 10 혹은 에이스 일 경우 사용자의 상태를 스탠드
+	else if (nowCard == "10" || nowCard == "A")
 	{
-		stand = true;
+		player.hit_false();
 
-		hit = false;
+		player.stand_true();
 		//burst = false;
-	}
-	// 위의 규칙에 해당되지 않는 경우
-	else
-	{
-		//점수가 11 이하이면 히트(10점짜리 카드가 나와도 무조건 버스트되지 않음)
-		if (score < 11) {
-			stand = false;
-			hit = true;
-		}
-		else {
-			// 몰?루
-		}
 	}
 }
