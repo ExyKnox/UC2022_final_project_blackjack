@@ -12,6 +12,10 @@ int main() {
 	cardDeckTest();
 }
 
+void game() {
+
+}
+
 void cardDeckTest() {
 	CardDeck testDeck;
 	Player player1;

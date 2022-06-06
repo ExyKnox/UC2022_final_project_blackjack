@@ -18,5 +18,5 @@ using namespace std;
 class Dealer : public Player {
 
 public:
-	void fair_play_strategy(Player& player);
+	void fair_play_strategy();
 };
