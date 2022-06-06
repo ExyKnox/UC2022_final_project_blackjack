@@ -40,10 +40,6 @@ public:
 	string endGame(); // STAND, BURST, BLACK JACK 일경우 게임을 종료해주는 함수
 	string select(); // HIT할지 STAND 할지 결정하는 함수 - HIT일 시 true 리턴, STAND일 시 false 리턴
 	string status(); // "stand" "hit" "burst" string 값 리턴 - 딜러용
-	void hit_false();
-	void hit_true();
-	void stand_false();
-	void stand_true();
 };
 
 /* 점수판단
