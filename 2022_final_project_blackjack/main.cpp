@@ -2,6 +2,7 @@
 #include <string>
 #include "CardDeck.h"
 #include "Player.h"
+#include "Dealer.h"
 
 using namespace std;
 
@@ -13,7 +14,78 @@ int main() {
 }
 
 void game() {
+	Player p1;
+	Dealer d1;
+	CardDeck cd;
+	int l = 0;
 
+	cd.shuffleCards();
+
+	while (true) {
+		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
+			// 플레이어 턴
+			if (p1.select() == "HIT") {
+				// 카드 한 장 뽑기
+				p1.getCard(cd.popCard());
+			}
+
+			// 딜러 턴
+			d1.fair_play_strategy();
+			if (d1.status() == "HIT") {
+				d1.getCard(cd.popCard());
+			}
+
+			// 플레이어가 버스트거나 스탠드일때
+			if (p1.status() == "STAND") {
+				if (p1.getScore() > d1.getScore()) {
+					cout << "플레이어 승" << endl;
+				}
+				else {
+					cout << "딜러 승" << endl;
+				}
+				break;
+			}
+			else {
+				// 플레이어가 버스트일 때
+				cout << "딜러 승" << endl;
+				break;
+			}
+
+			// 딜러가 버스트거나 스탠드일때
+			if (d1.status() == "STAND") {
+				if (p1.getScore() > d1.getScore()) {
+					cout << "플레이어 승" << endl;
+				}
+				else {
+					cout << "딜러 승" << endl;
+				}
+				break;
+			}
+			else {
+				// 딜러가 버스트일 때
+				cout << "플레이어 승" << endl;
+			}
+
+			l++;
+		}
+		else {
+			// 맨 처음 카드 두 번 뽑기
+			p1.getCard(cd.popCard());
+			d1.getCard(cd.popCard());
+			l++;
+			if (l == 2) {
+				// BLACKJACK 판단
+				if (p1.getScore() == 21) {
+					cout << "플레이어 블랙잭, 게임 종료" << endl;
+					return;
+				}
+				if (d1.getScore() == 21) {
+					cout << "딜러 블랙잭, 게임 종료" << endl;
+					return;
+				}
+			}
+		}
+	}
 }
 
 void cardDeckTest() {
