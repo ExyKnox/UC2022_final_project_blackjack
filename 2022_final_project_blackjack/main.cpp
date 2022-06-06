@@ -29,6 +29,7 @@ void game() {
 			if (p1.select() == "HIT") {
 				// Ä«µå ÇÑ Àå »Ì±â
 				p1.getCard(cd.popCard());
+				cout << " ½ê²öÇÑ ½Â°©ÀÌÀÇ Ä«µå µå·Î¿ì";
 			}
 
 			// µô·¯ ÅÏ
