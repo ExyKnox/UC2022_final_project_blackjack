@@ -8,9 +8,11 @@ using namespace std;
 
 //함수 원형 정의 - 안하면 에러남.
 void cardDeckTest();
+void game();
 
 int main() {
-	cardDeckTest();
+	//cardDeckTest();
+	game();
 }
 
 void game() {
