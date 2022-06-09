@@ -29,11 +29,11 @@ void game() {
 			if (p1.select() == "HIT") {
 				// Ä«µå ÇÑ Àå »Ì±â
 				p1.getCard(cd.popCard());
-				cout << " ½ê²öÇÑ ½Â°©ÀÌÀÇ Ä«µå µå·Î¿ì";
+				cout << " ½ê²öÇÑ ½Â°©ÀÌÀÇ Ä«µå µå·Î¿ì"; // <<- »ç½ÇÀÌ ¾Æ´Õ´Ï´Ù,
 			}
 
 			// µô·¯ ÅÏ
-			d1.fair_play_strategy();
+			d1.decision();
 			if (d1.status() == "HIT") {
 				d1.getCard(cd.popCard());
 			}
