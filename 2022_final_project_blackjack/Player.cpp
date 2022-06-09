@@ -26,8 +26,6 @@ void Player::scoreCalc() {
 			score += stoi(playerDeck[j].index, 0);
 	}
 	j++;
-	// 첫 두장 뽑는 부분 판단 사라짐
-	// 작성할것
 
 	if (score == 21) { //score가 21일시 자동 스탠드
 		cout << "점수 21, 자동 스탠드" << endl;
