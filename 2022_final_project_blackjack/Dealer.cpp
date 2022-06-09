@@ -46,5 +46,60 @@ using namespace std;
 
 // 소프트 핸드(A = 11)? 하드 핸드(A = 1 or A가 없음)?
 void Dealer::decision() {
+	// 먼저 소프트/하드 핸드 여부 판독
+	bool isSoft = false;
+	for (int i = 0; i < j; i++) {
+		if (playerDeck[j].index == "A") {
+			if ((score - 1) + 11 > 21) {
+				// A를 11로 처리했을 때 버스트라면 A = 1
+				// 따라서 A가 있는 하드 핸드
+				isSoft = false;
+			}
+			else {
+				// A를 11로 처리했을 때 버스트가 아니므로 A = 11
+				// 따라서 A가 있는 소프트 핸드
+				isSoft = true;
+			}
+		}
+	}
+
+	// A가 없으면 isSoft = false -> A 없는 하드 핸드
+
+	/*
+	* [종류 점수]
+	*
+	* [하드 11] 이하 히트
+	* [하드 17] 이상 스탠드
+	* [하드 12 ~ 하드 16] 히트 - 버스트 할 확률이 상대적으로 낮음
+	*
+	* [소프트 19 or 20] 스탠드
+	* [소프트 18] 스탠드
+	* [소프트 17] 히트
+	* [소프트 16] 히트(승률은 좀 낮음)
+	* [소프트 13 or 14] 히트
+	*/
+
+	if (isSoft) {
+		// 소프트 패일 때
+		if (score >= 19 || score == 18) {
+			stand = true;
+			return;
+		}
+		else if (score == 17 || score == 16 || score == 14 || score == 13) {
+			hit = true;
+			return;
+		}
+	}
+	else {
+		// 하드 패일 때
+		if (score <= 11 || (score >= 12 && score <= 16) ) {
+			hit = true;
+			return;
+		}
+		else if (score >= 17) {
+			stand = true;
+			return;
+		}
+	}
 
 }
