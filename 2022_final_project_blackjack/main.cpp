@@ -41,35 +41,42 @@ void game() {
 			}
 
 			// 플레이어가 버스트거나 스탠드일때
-			if (p1.status() == "STAND") {
-				if (p1.getScore() > d1.getScore()) {
-					cout << "플레이어 승" << endl;
-				}
-				else {
-					cout << "딜러 승" << endl;
-				}
-				break;
-			}
-			else {
-				// 플레이어가 버스트일 때
-				cout << "딜러 승" << endl;
-				break;
-			}
+			//if (p1.status() == "STAND") {
+			//	if (p1.getScore() > d1.getScore()) {
+			//		cout << "플레이어 승" << endl;
+			//	}
+			//	else {
+			//		cout << "딜러 승" << endl;
+			//	}
+			//	break;
+			//}
+			//else {
+			//	// 플레이어가 버스트일 때
+			//	cout << "딜러 승" << endl;
+			//	break;
+			//}
 
-			// 딜러가 버스트거나 스탠드일때
-			if (d1.status() == "STAND") {
-				if (p1.getScore() > d1.getScore()) {
-					cout << "플레이어 승" << endl;
-				}
-				else {
-					cout << "딜러 승" << endl;
-				}
-				break;
-			}
-			else {
-				// 딜러가 버스트일 때
-				cout << "플레이어 승" << endl;
-			}
+			//// 딜러가 버스트거나 스탠드일때
+			//if (d1.status() == "STAND") {
+			//	if (p1.getScore() > d1.getScore()) {
+			//		cout << "플레이어 승" << endl;
+			//	}
+			//	else {
+			//		cout << "딜러 승" << endl;
+			//	}
+			//	break;
+			//}
+			//else {
+			//	// 딜러가 버스트일 때
+			//	cout << "플레이어 승" << endl;
+			//}
+
+			// 플레이어 or 딜러 둘 중에 한명이
+			// 1. 버스트일 때
+			// -> 먼저 버스트 된 쪽이 패배
+			// 2. 스탠드일 때
+			// -> 스탠드가 아닌 쪽의 히트/스탠드 여부 먼저 물어본 뒤에(플레이어 -> select() 딜러 -> decision())
+			// -> 점수 비교해서(getScore()) 점수 큰 쪽이 승리
 
 			l++;
 		}
