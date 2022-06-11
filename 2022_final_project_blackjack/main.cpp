@@ -73,11 +73,13 @@ void game() {
 		}
 		else {
 			// 맨 처음 카드 두 번 뽑기
+			cout << "--p1--" << endl;
 			p1.getCard(cd.popCard());
+			cout << "--d1--" << endl;
 			d1.getCard(cd.popCard());
 			l++;
-			if (l == 2) {
-				// BLACKJACK 판단
+			if (l == 1) {
+				// 2장 뽑았을 때 BLACKJACK 판단
 				if (p1.getScore() == 21) {
 					cout << "플레이어 블랙잭, 게임 종료" << endl;
 					return;

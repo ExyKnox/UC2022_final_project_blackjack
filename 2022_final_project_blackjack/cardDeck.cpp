@@ -7,7 +7,8 @@ using namespace std;
 CardDeck::CardDeck() {
 	// 기본 1 팩 = 52장 (조커 제외)
 	cardAmount = 52;
-	// 카드 덱 초기화 - 구조체라 생성자 실행 시 카드 생성, 셔플 | 1차 for는 S H D C, 2차 for는 A 2 3 4 5 ... J Q K
+	// 카드 덱 초기화 - 구조체라 생성자 실행 시 카드 생성, 셔플
+	// 1차 for는 S H D C, 2차 for는 A 2 3 4 5 ... J Q K
 	int indexes_counter = 0;
 	for (int i = 0; i < cardAmount; i++) {
 		cards[i].symbol = symbols[i / 13];

@@ -10,22 +10,21 @@ int Player::getScore() {
 }
 
 void Player::scoreCalc() {
-	if (playerDeck[j].index != "") {
-		if (playerDeck[j].index == "J") //J,Q,K을 받았을시 10의 점수를 주고 A를 받았을시 일단 11을 주지만 플레이어가 BURST판정이 났을시 11을 1로바꿔줌
+	if (playerDeck[j-1].index != "") {
+		if (playerDeck[j-1].index == "J") //J,Q,K을 받았을시 10의 점수를 주고 A를 받았을시 일단 11을 주지만 플레이어가 BURST판정이 났을시 11을 1로바꿔줌
 			score += 10;
-		else if (playerDeck[j].index == "Q")
+		else if (playerDeck[j-1].index == "Q")
 			score += 10;
-		else if (playerDeck[j].index == "K")
+		else if (playerDeck[j-1].index == "K")
 			score += 10;
-		else if (playerDeck[j].index == "A")
+		else if (playerDeck[j-1].index == "A")
 			// 11점 미만의 점수를 가지고 있다면 A를 11점 처리
 			if (score < 11) score += 11;
 		// 11점 이상의 점수를 가지고 있을 경우
 			else score += 1;
 		else
-			score += stoi(playerDeck[j].index, 0);
+			score += stoi(playerDeck[j-1].index, 0);
 	}
-	j++;
 
 	if (score == 21) { //score가 21일시 자동 스탠드
 		cout << "점수 21, 자동 스탠드" << endl;
@@ -55,18 +54,21 @@ void Player::getCard(struct Card c) {
 	if (stand == true or burst == true) return;
 	else {
 		playerDeck[j] = c;
+		//cout << j << endl;
+		j++;
 		scoreCalc();
 	}
 }
 
 void Player::printCard() { //플레이어가 뽑은 카드를 출력해주는 함수
 	cout << "당신이 뽑은 "
-		<< j + 1
+		<< j
 		<< "번째 카드는"
-		<< playerDeck[j].symbol
-		<< playerDeck[j].index
+		<< playerDeck[j-1].symbol
+		<< playerDeck[j-1].index
 		<< "입니다" << endl;
 }
+
 void Player::printScore() { //플레이어의 점수를 출력해주는 함수
 	cout << "당신의 점수는"
 		<< score
