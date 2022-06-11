@@ -48,8 +48,8 @@ using namespace std;
 void Dealer::decision() {
 	// 먼저 소프트/하드 핸드 여부 판독
 	bool isSoft = false;
-	for (int i = 0; i < j; i++) {
-		if (playerDeck[j].index == "A") {
+	for (int i = 0; i < j-1; i++) {
+		if (playerDeck[i].index == "A") {
 			if ((score - 1) + 11 > 21) {
 				// A를 11로 처리했을 때 버스트라면 A = 1
 				// 따라서 A가 있는 하드 핸드

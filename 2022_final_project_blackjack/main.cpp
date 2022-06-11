@@ -26,6 +26,7 @@ void game() {
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
 			// 플레이어 턴
+			cout << "--p1--" << endl;
 			if (p1.select() == "HIT") {
 				// 카드 한 장 뽑기
 				p1.getCard(cd.popCard());
@@ -33,6 +34,7 @@ void game() {
 			}
 
 			// 딜러 턴
+			cout << "--d1--" << endl;
 			d1.decision();
 			if (d1.status() == "HIT") {
 				d1.getCard(cd.popCard());
@@ -73,9 +75,7 @@ void game() {
 		}
 		else {
 			// 맨 처음 카드 두 번 뽑기
-			cout << "--p1--" << endl;
 			p1.getCard(cd.popCard());
-			cout << "--d1--" << endl;
 			d1.getCard(cd.popCard());
 			l++;
 			if (l == 1) {

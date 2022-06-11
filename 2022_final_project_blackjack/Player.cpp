@@ -32,7 +32,7 @@ void Player::scoreCalc() {
 	}
 	else if (score > 21) { //score가 21이 넘었을떄 BURST지만 플레이어가 A를 가지고 있을시 11로 사용했던 A를 1로 바꿔줌
 		int p = 0;
-		for (int h = 0; h < j; h++) {
+		for (int h = 0; h < j-1; h++) {
 			if (playerDeck[h].index == "A") {
 				p++;
 			}
@@ -115,7 +115,10 @@ string Player::select(string status, CardDeck* cd) {
 }
 
 string Player::status() {
-	if (burst) return "BURST";
-	else if (stand) return "STAND";
-	else if (hit) return "HIT";
+	string returnStr;
+	if (burst) returnStr = "BURST";
+	else if (stand) returnStr = "STAND";
+	else if (hit) returnStr = "HIT";
+
+	return returnStr;
 }
