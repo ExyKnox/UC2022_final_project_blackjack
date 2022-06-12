@@ -107,7 +107,6 @@ void game() {
 			//	// 딜러가 버스트일 때
 			//	cout << "플레이어 승" << endl;
 			//}
-//----------------------------------------------------------------------------------------수정중 아래로
 			// 플레이어 or 딜러 둘 중에 한명이
 			// 1. 버스트일 때
 			// -> 먼저 버스트 된 쪽이 패배
@@ -133,24 +132,23 @@ void game() {
 					if (d1.getScore() == 21)
 						cout << "딜러가 STAND 하였습니다. 플레이어는 HIT or STAND 를 선택 바랍니다." << endl;
 				}
-				//----------------------------------------------------------------------------------------수정중 위로
 				l++;
 			}
-			else {
-				// 맨 처음 카드 두 번 뽑기
-				p1.getCard(cd.popCard());
-				d1.getCard(cd.popCard());
-				l++;
-				if (l == 1) {
-					// 2장 뽑았을 때 BLACKJACK 판단
-					if (p1.getScore() == 21) {
-						cout << "플레이어 블랙잭, 게임 종료" << endl;
-						return;
-					}
-					if (d1.getScore() == 21) {
-						cout << "딜러 블랙잭, 게임 종료" << endl;
-						return;
-					}
+		}
+		else {
+			// 맨 처음 카드 두 번 뽑기
+			p1.getCard(cd.popCard());
+			d1.getCard(cd.popCard());
+			l++;
+			if (l == 1) {
+				// 2장 뽑았을 때 BLACKJACK 판단
+				if (p1.getScore() == 21) {
+					cout << "플레이어 블랙잭, 게임 종료" << endl;
+					return;
+				}
+				if (d1.getScore() == 21) {
+					cout << "딜러 블랙잭, 게임 종료" << endl;
+					return;
 				}
 			}
 		}
