@@ -3,6 +3,7 @@
 #include "CardDeck.h"
 #include "Player.h"
 #include "Dealer.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -13,6 +14,46 @@ void start();
 
 int main() {
 	//cardDeckTest();
+	cout << endl << endl << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ		ΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ" << endl;
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ		ΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		                ΒΒΒ   ΒΒ    ΒΒ		         ΒΒΒ    ΒΒ    ΒΒ" << endl;
+	cout << "\t" << "ΒΒΒ		ΒΒΒ			        ΒΒΒ   ΒΒ    ΒΒ		        ΒΒΒ     ΒΒ    ΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒΒΒΒΒ		    ΒΒΒΒ       ΒΒΒΒΒΒ   	" << endl;
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒΒΒΒΒ	          ΒΒΒΒΒΒ     ΒΒΒΒΒΒ  " << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		ΒΒΒ	                 ΒΒ    ΒΒ		 ΒΒ      ΒΒ	   ΒΒ    ΒΒ" << endl;
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		ΒΒΒ	                 ΒΒ    ΒΒ		ΒΒ        ΒΒ   ΒΒ    ΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒ		ΒΒΒ		ΒΒΒ	                 ΒΒ    ΒΒ	       ΒΒ          ΒΒ  ΒΒ    ΒΒ" << endl;
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ	      ΒΒ           ΒΒ  ΒΒ    ΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ		ΒΒΒΒΒΒΒΒΒΒΒ   ΒΒ    ΒΒ	      ΒΒ           ΒΒ  ΒΒ    ΒΒ" << endl;
+	cout << endl;
+	Sleep(1000);
+	cout << endl;
+	cout << " " << "ΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒ         ΒΒΒΒΒΒΒΒΒΒΒΒΒΒ               ΒΒΒΒΒΒΒΒΒΒΒΒΒΒ" << endl;
+	Sleep(1000);
+	cout << " " << "ΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒΒ         ΒΒΒΒΒΒΒΒΒΒΒΒΒΒ               ΒΒΒΒΒΒΒΒΒΒΒΒΒΒ" << endl;
+	cout << " " << "                                                                   ΒΒΒ                                     ΒΒΒ" << endl;
+	Sleep(1000);
+	cout << " " << "                                                                   ΒΒΒ                                     ΒΒΒ" << endl;
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	cout << "\t                " << "ΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒ		                                            ΒΒΒ                                     ΒΒΒ" << endl;
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ	                                    ΒΒΒ                                     ΒΒΒ" << endl;
+	Sleep(1000);
+	cout << "\t" << "ΒΒΒΒΒΒΒΒΒΒΒ" << endl;
+
 	start();
 	game();
 }
@@ -63,7 +104,7 @@ void game() {
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
 			// 플레이어 턴
-			cout << endl << endl << "--플레이어 턴--" << endl << endl;
+			cout << endl << endl << "--쌔끈 빠끈 이두 빠끈 승갑이의 턴--" << endl << endl;
 			if (p1.select() == "HIT") {
 				// 카드 한 장 뽑기
 				p1.getCard(cd.popCard());
@@ -133,9 +174,11 @@ void game() {
 						d1.decision();
 						if (d1.status() == "HIT") {
 							d1.getCard(cd.popCard());
+							cout << "딜러는 카드 한장을 드로우!";
 						}
 						else {
 							// 딜러가 스탠드일 경우
+							cout << "이제 그만 뽑아야징";
 							break;
 						}
 					}
@@ -147,9 +190,11 @@ void game() {
 							p1.select();
 							if (p1.select() == "HIT") {
 								p1.getCard(cd.popCard());
+								cout << "플레이어는 카드 한장을 드로우!";
 							}
 							else {
 								// 플레이어가 스탠드일 경우
+								cout << "이제 그만 뽑아야징";
 								break;
 							}
 						}

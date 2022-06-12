@@ -68,7 +68,7 @@ void Player::getCard(struct Card c) {
 
 void Player::printCard() { //플레이어가 뽑은 카드를 출력해주는 함수
 	cout << name
-	cout << "이 뽑은 "
+		<< "이 뽑은 "
 		<< j
 		<< "번째 카드는"
 		<< playerDeck[j-1].symbol
@@ -78,7 +78,7 @@ void Player::printCard() { //플레이어가 뽑은 카드를 출력해주는 함수
 
 void Player::printScore() { //플레이어의 점수를 출력해주는 함수
 	cout << name
-	cout << "의 점수는"
+		<< "의 점수는"
 		<< score
 		<< "입니다" << endl;
 }
@@ -88,7 +88,7 @@ string Player::endGame() { //플레이어가 STAND를 선택했을시, BURST판정이 났을시, 
 	{
 		//STAND를 눌렀거나 BURST시 최종점수를 알려준뒤 
 		cout << name
-		cout << "의 최종점수는"
+			<< "의 최종점수는"
 			<< score
 			<< "입니다" << endl;
 		return "END";
