@@ -4,25 +4,20 @@
 #include "Player.h"
 #include "Dealer.h"
 
-using namespace cv;
 using namespace std;
 
 //함수 원형 정의 - 안하면 에러남.
 void cardDeckTest();
 void game();
+void start();
 
 int main() {
 	//cardDeckTest();
+	start();
 	game();
-
 }
 
-int main(void)
-{
-	start();
-	return 0;
-
-	//----------------------------------------------------------------------------------------수정중 아래로
+void start() {
 	char choice, choice1, choice2, choice3;
 	cout << "(도박은 나빠요! 도박은 앙대!, 인생한방 노리다가 인생 한방에 갑니다.)" << endl;
 	cout << "블랙잭 한판 하실?  [y/n] " << endl;
@@ -53,7 +48,8 @@ int main(void)
 	}
 	else {
 		cout << "집에 가서 쉬셔용 빠빠이" << endl;
-	//----------------------------------------------------------------------------------------수정중 위로
+	}
+	return;
 }
 
 void game() {
@@ -119,46 +115,42 @@ void game() {
 			// -> 스탠드가 아닌 쪽의 히트/스탠드 여부 먼저 물어본 뒤에(플레이어 -> select() 딜러 -> decision())
 			// -> 점수 비교해서(getScore()) 점수 큰 쪽이 승리
 
-			if (p1.select() || d1.status() == "BUST") {
+			if (p1.status() == "BURST" || d1.status() == "BURST") {
 				if (p1.getScore() > 21) {
-					cout << "플레이어의 점수가 21점을 초과하여 BUST, 게임을 패배했습니다." << endl;
+					cout << "플레이어의 점수가 21점을 초과하여 BURST, 게임을 패배했습니다." << endl;
 					return;
 				}
 				else if (d1.getScore() > 21) {
-					cout << "딜러의 점수가 21점을 초과하여 BUST, 게임을 패배했습니다." << endl;
+					cout << "딜러의 점수가 21점을 초과하여 BURST, 게임을 패배했습니다." << endl;
 					return;
 				}
 			}
-			else if (p1.select() == "STAND") {
+			else if (p1.status() == "STAND") {
 				if (p1.getScore() > 21) {
-					cout << "플레이어가 STAND 하였습니다. 딜러는 HIT or STAND 를 선택 바랍니다." endl;
-					if 
+					cout << "플레이어가 STAND 하였습니다. 딜러는 HIT or STAND 를 선택 바랍니다." << endl;
 				}
-			else if (d1.status() == "STAND") {
-				if (d1.getScore() == 21) 
-					cout << "딜러가 STAND 하였습니다. 플레이어는 HIT or STAND 를 선택 바랍니다." endl;
+				else if (d1.status() == "STAND") {
+					if (d1.getScore() == 21)
+						cout << "딜러가 STAND 하였습니다. 플레이어는 HIT or STAND 를 선택 바랍니다." << endl;
 				}
-//----------------------------------------------------------------------------------------수정중 위로
-
-
-
-
-			l++;
-		}
-		else {
-			// 맨 처음 카드 두 번 뽑기
-			p1.getCard(cd.popCard());
-			d1.getCard(cd.popCard());
-			l++;
-			if (l == 1) {
-				// 2장 뽑았을 때 BLACKJACK 판단
-				if (p1.getScore() == 21) {
-					cout << "플레이어 블랙잭, 게임 종료" << endl;
-					return;
-				}
-				if (d1.getScore() == 21) {
-					cout << "딜러 블랙잭, 게임 종료" << endl;
-					return;
+				//----------------------------------------------------------------------------------------수정중 위로
+				l++;
+			}
+			else {
+				// 맨 처음 카드 두 번 뽑기
+				p1.getCard(cd.popCard());
+				d1.getCard(cd.popCard());
+				l++;
+				if (l == 1) {
+					// 2장 뽑았을 때 BLACKJACK 판단
+					if (p1.getScore() == 21) {
+						cout << "플레이어 블랙잭, 게임 종료" << endl;
+						return;
+					}
+					if (d1.getScore() == 21) {
+						cout << "딜러 블랙잭, 게임 종료" << endl;
+						return;
+					}
 				}
 			}
 		}
