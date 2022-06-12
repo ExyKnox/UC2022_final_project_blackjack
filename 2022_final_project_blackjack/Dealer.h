@@ -18,5 +18,6 @@ using namespace std;
 class Dealer : public Player {
 
 public:
+	Dealer();
 	void decision();
 };

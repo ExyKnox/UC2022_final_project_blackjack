@@ -44,6 +44,10 @@ using namespace std;
 //	// main()에서 status() 사용 후 히트일 시 select(string status, CardDeck* cd) 사용
 //}
 
+Dealer::Dealer() {
+	name = "딜러";
+}
+
 // 소프트 핸드(A = 11)? 하드 핸드(A = 1 or A가 없음)?
 void Dealer::decision() {
 	// 먼저 소프트/하드 핸드 여부 판독

@@ -5,6 +5,10 @@
 
 using namespace std;
 
+Player::Player() {
+	name = "플레이어";
+}
+
 int Player::getScore() {
 	return score;
 }
@@ -38,7 +42,7 @@ void Player::scoreCalc() {
 			}
 		}
 		if (p == 0) {
-			cout << "BURST ㅠㅠ";
+			cout << "BURST ㅠㅠ" << endl;
 			burst = true;
 		}
 		else if (p == 1) {

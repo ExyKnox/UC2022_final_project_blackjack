@@ -63,15 +63,15 @@ void game() {
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
 			// 플레이어 턴
-			cout << "--p1--" << endl;
+			cout << endl << endl << "--플레이어 턴--" << endl << endl;
 			if (p1.select() == "HIT") {
 				// 카드 한 장 뽑기
 				p1.getCard(cd.popCard());
-				cout << " 쎄끈한 승갑이의 카드 드로우"; // <<- 사실이 아닙니다,
+				cout << " 쎄끈한 승갑이의 카드 드로우" << endl; // <<- 사실이 아닙니다,
 			}
 
 			// 딜러 턴
-			cout << "--d1--" << endl;
+			cout << endl << endl << "--딜러 턴--" << endl << endl;
 			d1.decision();
 			if (d1.status() == "HIT") {
 				d1.getCard(cd.popCard());
@@ -117,10 +117,12 @@ void game() {
 			if (p1.status() == "BURST" || d1.status() == "BURST") {
 				if (p1.getScore() > 21) {
 					cout << "플레이어의 점수가 21점을 초과하여 BURST, 게임을 패배했습니다." << endl;
+					cout << "딜러 승!" << endl;
 					return;
 				}
 				else if (d1.getScore() > 21) {
 					cout << "딜러의 점수가 21점을 초과하여 BURST, 게임을 패배했습니다." << endl;
+					cout << "플레이어 승!" << endl;
 					return;
 				}
 			}
