@@ -50,6 +50,8 @@ Dealer::Dealer() {
 
 // 소프트 핸드(A = 11)? 하드 핸드(A = 1 or A가 없음)?
 void Dealer::decision() {
+	if (stand || burst) return;
+
 	// 먼저 소프트/하드 핸드 여부 판독
 	bool isSoft = false;
 	for (int i = 0; i < j-1; i++) {

@@ -65,6 +65,7 @@ void Player::getCard(struct Card c) {
 }
 
 void Player::printCard() { //플레이어가 뽑은 카드를 출력해주는 함수
+	// 당신 -> name 으로 변경 출력
 	cout << "당신이 뽑은 "
 		<< j
 		<< "번째 카드는"
@@ -92,6 +93,7 @@ string Player::endGame() { //플레이어가 STAND를 선택했을시, BURST판정이 났을시, 
 }
 
 string Player::select() {
+	if (stand || burst) return;
 	cout << "1.HIT " << "2.STAND " << endl;
 	int o;
 	cin >> o;
