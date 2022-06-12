@@ -127,7 +127,7 @@ void game() {
 				}
 			}
 			else if (p1.status() == "STAND") {
-				if (p1.getScore() > 21) {
+				if (p1.getScore() == 21) {
 					cout << "플레이어가 STAND 하였습니다. 딜러는 HIT or STAND 를 선택 바랍니다." << endl;
 					while (d1.status() != "STAND") {
 						d1.decision();
@@ -141,9 +141,19 @@ void game() {
 					}
 				}
 				else if (d1.status() == "STAND") {
-					if (d1.getScore() == 21)
+					if (d1.getScore() == 21){
 						cout << "딜러가 STAND 하였습니다. 플레이어는 HIT or STAND 를 선택 바랍니다." << endl;
-					// 플레이어 선택 코드 작성
+						while (p1.status() != "STAND") {
+							p1.select();
+							if (p1.select() == "HIT") {
+								p1.getCard(cd.popCard());
+							}
+							else {
+								// 플레이어가 스탠드일 경우
+								break;
+							}
+						}
+					}
 				}
 				l++;
 			}
