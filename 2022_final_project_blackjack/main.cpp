@@ -118,36 +118,6 @@ void game() {
 				d1.getCard(cd.popCard());
 			}
 
-			// 플레이어가 버스트거나 스탠드일때
-			//if (p1.status() == "STAND") {
-			//	if (p1.getScore() > d1.getScore()) {
-			//		cout << "플레이어 승" << endl;
-			//	}
-			//	else {
-			//		cout << "딜러 승" << endl;
-			//	}
-			//	break;
-			//}
-			//else {
-			//	// 플레이어가 버스트일 때
-			//	cout << "딜러 승" << endl;
-			//	break;
-			//}
-
-			//// 딜러가 버스트거나 스탠드일때
-			//if (d1.status() == "STAND") {
-			//	if (p1.getScore() > d1.getScore()) {
-			//		cout << "플레이어 승" << endl;
-			//	}
-			//	else {
-			//		cout << "딜러 승" << endl;
-			//	}
-			//	break;
-			//}
-			//else {
-			//	// 딜러가 버스트일 때
-			//	cout << "플레이어 승" << endl;
-			//}
 			// 플레이어 or 딜러 둘 중에 한명이
 			// 1. 버스트일 때
 			// -> 먼저 버스트 된 쪽이 패배
