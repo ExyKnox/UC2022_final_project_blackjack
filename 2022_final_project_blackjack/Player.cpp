@@ -97,7 +97,6 @@ string Player::endGame() { //플레이어가 STAND를 선택했을시, BURST판정이 났을시, 
 }
 
 string Player::select() {
-	if (stand || burst) return;
 	cout << "1.HIT " << "2.STAND " << endl;
 	int o;
 	cin >> o;
