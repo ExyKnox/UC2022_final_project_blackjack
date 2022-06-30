@@ -104,11 +104,9 @@ void game() {
 	while (true) {
 		if (l >= 2) { //맨처음 2장은 무조건 받으니 2장을 받고 난뒤에는 히트와 스탠드를 선택할수 있다.
 			// 플레이어 턴
-			cout << endl << endl << "--쌔끈 빠끈 이두 빠끈 승갑이의 턴--" << endl << endl;
 			if (p1.select() == "HIT") {
 				// 카드 한 장 뽑기
 				p1.getCard(cd.popCard());
-				cout << " 쎄끈한 승갑이의 카드 드로우" << endl; // <<- 사실이 아닙니다,
 			}
 
 			// 딜러 턴
@@ -177,7 +175,6 @@ void game() {
 			// 맨 처음 카드 두 번 뽑기
 			p1.getCard(cd.popCard());
 			d1.getCard(cd.popCard());
-			l++;
 			if (l == 1) {
 				// 2장 뽑았을 때 BLACKJACK 판단
 				if (p1.getScore() == 21) {
@@ -189,6 +186,7 @@ void game() {
 					return;
 				}
 			}
+			l++;
 		}
 	}
 }
